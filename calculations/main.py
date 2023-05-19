@@ -1,4 +1,17 @@
 def findDistance(cities):
+    """
+    Calculates the distance between two cities.
+
+    Args:
+        cities (list): A list of city names.
+
+    Returns:
+        float: The distance between the cities in kilometers.
+
+    Raises:
+        ValueError: If a city in the list does not exist.
+
+    """
 
     map_of_coordinates = {}
     
@@ -12,8 +25,3 @@ def findDistance(cities):
     distance = calculate_distance(map_of_coordinates)
     
     return distance
-
-
-# TODO use pycomments
-# TODO better error handling! 
-

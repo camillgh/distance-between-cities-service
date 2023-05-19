@@ -9,6 +9,16 @@ config = dotenv_values(".env")
 city_api_key = config["CITY_API_KEY"]
 
 def calculate_distance(map_of_coordinates):
+    """
+    Calculates the distance between the first two cities in the given hash map of coordinates.
+
+    Args:
+        map_of_coordinates (dict): A dictionary where the keys are cities and the values are 
+        coordinates of the city, on the form of a (latitude, longitude) tuple.
+
+    Returns:
+        float: The distance between the first two cities in kilometers.
+    """
     
     coordinates_iterator = iter(map_of_coordinates.values())
 
@@ -23,6 +33,15 @@ def calculate_distance(map_of_coordinates):
 
 
 def check_city_existence(city_name):
+    """
+    Checks the existence of a city with the given name.
+
+    Args:
+        city_name (str): The name of the city to check.
+
+    Raises:
+        ValueError: If the city does not exist.
+    """
     geolocator = Nominatim(user_agent="my_geocoder")
     location = geolocator.geocode(city_name)
 
@@ -31,7 +50,18 @@ def check_city_existence(city_name):
         
 
 def find_coordinates_from_city(cityName):
+       """
+        Retrieves the latitude and longitude coordinates for a given city using an API.
 
+        Args:
+            cityName (str): The name of the city to retrieve coordinates for.
+
+        Returns:
+            tuple (float): A tuple containing the latitude and longitude coordinates of the city.
+
+        Raises:
+            ValueError: If an error occurs while making the API request.
+    """
     api_url = 'https://api.api-ninjas.com/v1/city?name={}'.format(cityName)
     response = requests.get(api_url, headers={'X-Api-Key': city_api_key})
     
