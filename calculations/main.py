@@ -1,3 +1,5 @@
+from distance_calculator import *
+
 def findDistance(cities):
     """
     Calculates the distance between two cities.
@@ -25,3 +27,14 @@ def findDistance(cities):
     distance = calculate_distance(map_of_coordinates)
     
     return distance
+
+
+print(findDistance(["San Francisco", "Oslo"]))
+
+# TODO javascript interactions
+# TODO javascript display frontend
+# TODO better error handling! 
+# TODO sexier readme
+# TODO deploy 
+# TODO fill out search bar automagically?
+ 
