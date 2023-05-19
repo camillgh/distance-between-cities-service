@@ -50,7 +50,7 @@ def check_city_existence(city_name):
         
 
 def find_coordinates_from_city(cityName):
-       """
+    """
         Retrieves the latitude and longitude coordinates for a given city using an API.
 
         Args:
