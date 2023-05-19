@@ -1,0 +1,23 @@
+{
+  "name": "distance-between-cities-service",
+  "version": "1.0.0",
+  "description": "A service with a HTTP-endpoint that returns the distance between two cities.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camillgh/distance-between-cities-service.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/camillgh/distance-between-cities-service/issues"
+  },
+  "homepage": "https://github.com/camillgh/distance-between-cities-service#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  }
+}
