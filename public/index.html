@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Distance Between Cities</title>
-    <script type="text/javascript" src="script.js"></script>
-</head>
-<body>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body>
     <h1>Type in two cities to find the distance between them!</h1>
-    <input placeholder="Oslo" id="cityOne"> <br> <br>
-    <input placeholder="Stavanger" id="cityTwo"> <br> <br>
-    <button onclick="findDistance()"> Search </button> <br> <br> <br> <br>
-    <h1 id="message"> </h1>
+    <input placeholder="Oslo" id="cityOne" /> <br />
+    <br />
+    <input placeholder="Stavanger" id="cityTwo" /> <br />
+    <br />
+    <button onclick="onSearchButtonClick()">Search</button> <br />
+    <br />
+    <br />
+    <br />
+    <div id="error"></div>
+    <h1 id="message"></h1>
 
     <style>
-        body {background-color: darkslategray; text-align: center; color: floralwhite;}
-    </style> 
-
-</body>
+      body {
+        background-color: darkslategray;
+        text-align: center;
+        color: floralwhite;
+      }
+    </style>
+  </body>
 </html>
