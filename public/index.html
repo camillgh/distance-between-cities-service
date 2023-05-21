@@ -8,23 +8,39 @@
     <script type="text/javascript" src="app.js"></script>
   </head>
   <body>
-    <h1>Type in two cities to find the distance between them!</h1>
-    <input placeholder="Oslo" id="cityOne" /> <br />
-    <br />
-    <input placeholder="Stavanger" id="cityTwo" /> <br />
-    <br />
-    <button onclick="onSearchButtonClick()">Search</button> <br />
-    <br />
-    <br />
-    <br />
-    <div id="error"></div>
-    <h1 id="message"></h1>
+    <div class="container">
+      <h1>Type in two cities to find the distance between them!</h1>
+      <input value="Oslo" id="cityOne" /> <br />
+      <br />
+      <input value="Stavanger" id="cityTwo" /> <br />
+      <br />
+      <button onclick="onSearchButtonClick()">Search</button> <br />
+      <br />
+      <br />
+      <br />
+      <div id="error"></div>
+      <h1 id="message"></h1>
+    </div>
 
     <style>
       body {
         background-color: darkslategray;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-family: Garamond, serif;
+        color: white;
+      }
+
+      .container {
         text-align: center;
-        color: floralwhite;
+      }
+
+      button,
+      input,
+      h1 {
+        font-family: inherit;
       }
     </style>
   </body>
