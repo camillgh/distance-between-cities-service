@@ -3,7 +3,6 @@ const app = express();
 const path = require("path");
 const dotenv = require("dotenv");
 const haversine = require("haversine-distance");
-const { error } = require("console");
 
 dotenv.config();
 
@@ -20,7 +19,6 @@ app.get("/api/distance", async (req, res) => {
       [dataCityTwo[0].latitude, dataCityTwo[0].longitude]
     );
 
-    console.log(distance);
     res.json({ distance });
   } catch (error) {
     console.error(error);
