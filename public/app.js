@@ -1,7 +1,7 @@
-function on_search_button_click() {
-  let cityOne = document.querySelector("#cityOne").value;
-  let cityTwo = document.querySelector("#cityTwo").value;
-  let errorElement = document.querySelector("#error");
+function onSearchButtonClick() {
+  const cityOne = document.querySelector("#cityOne").value;
+  const cityTwo = document.querySelector("#cityTwo").value;
+  const errorElement = document.querySelector("#error");
 
   fetch(`/api/distance?cityOne=${cityOne}&cityTwo=${cityTwo}`)
     .then((response) => {
@@ -11,18 +11,19 @@ function on_search_button_click() {
       return response.json();
     })
     .then((data) => {
-      const distance_meters = data.distance;
+      const distanceMeters = data.distance;
 
-      let message = document.querySelector("#message");
-      message.innerHTML =
-        "The distance is " + Number(distance_meters / 1000).toFixed(2) + "km";
+      const message = document.querySelector("#message");
+      message.innerHTML = `The distance is ${Number(
+        distanceMeters / 1000
+      ).toFixed(2)}km`;
 
       // Clear any previous error messages
       errorElement.textContent = "";
     })
     .catch((error) => {
       errorElement.textContent = error.message;
-      let messageElement = document.querySelector("#message");
+      const messageElement = document.querySelector("#message");
       messageElement.textContent = ""; // Clear the message element
     });
 }
