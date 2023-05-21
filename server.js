@@ -3,34 +3,17 @@ const app = express();
 const path = require("path");
 const dotenv = require("dotenv");
 const haversine = require("haversine-distance");
+const { error } = require("console");
 
 dotenv.config();
-
-app.get("/api/city", async (req, res) => {
-  try {
-    const apiKey = process.env.CITY_API_KEY;
-    const cityName = req.query.name;
-    const apiUrl = `https://api.api-ninjas.com/v1/city?name=${cityName}`;
-
-    const response = await fetch(apiUrl, {
-      headers: { "X-Api-Key": apiKey },
-    });
-
-    const data = await response.json();
-    res.json(data);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Internal server error" });
-  }
-});
 
 app.get("/api/distance", async (req, res) => {
   try {
     const cityOne = req.query.cityOne;
     const cityTwo = req.query.cityTwo;
 
-    const dataCityOne = await fetchCityData(cityOne);
-    const dataCityTwo = await fetchCityData(cityTwo);
+    const dataCityOne = await fetchCityData(cityOne, cityTwo);
+    const dataCityTwo = await fetchCityData(cityTwo, cityOne);
 
     const distance = haversine(
       [dataCityOne[0].latitude, dataCityOne[0].longitude],
@@ -41,7 +24,7 @@ app.get("/api/distance", async (req, res) => {
     res.json({ distance });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "Internal server error" });
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -55,10 +38,15 @@ async function fetchCityData(cityName) {
   const apiKey = process.env.CITY_API_KEY;
   const apiUrl = `https://api.api-ninjas.com/v1/city?name=${cityName}`;
 
-  const response = await fetch(apiUrl, {
-    headers: { "X-Api-Key": apiKey },
-  });
+  try {
+    const response = await fetch(apiUrl, {
+      headers: { "X-Api-Key": apiKey },
+    });
 
-  const data = await response.json();
-  return data;
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 }

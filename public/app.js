@@ -1,30 +1,28 @@
-function fetchData(cityName) {
-  fetch(`/api/city?name=${cityName}`)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      return data;
-    })
-    .catch((error) => {
-      console.error(error);
-      throw error;
-    });
-}
-
 function on_search_button_click() {
   let cityOne = document.querySelector("#cityOne").value;
   let cityTwo = document.querySelector("#cityTwo").value;
+  let errorElement = document.querySelector("#error");
 
   fetch(`/api/distance?cityOne=${cityOne}&cityTwo=${cityTwo}`)
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Invalid city input");
+      }
+      return response.json();
+    })
     .then((data) => {
       const distance_meters = data.distance;
 
       let message = document.querySelector("#message");
       message.innerHTML =
         "The distance is " + Number(distance_meters / 1000).toFixed(2) + "km";
+
+      // Clear any previous error messages
+      errorElement.textContent = "";
     })
     .catch((error) => {
-      console.error(error);
+      errorElement.textContent = error.message;
+      let messageElement = document.querySelector("#message");
+      messageElement.textContent = ""; // Clear the message element
     });
 }
