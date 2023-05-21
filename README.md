@@ -1,6 +1,9 @@
 # City Distance Calculator
 
-This Node.js project calculates the distance between two cities based on their latitude and longitude coordinates. It utilizes the Haversine formula to compute the distance. The project consists of server-side code written in JavaScript and an HTML interface for user input, and the service is hosted through [Vercel](https://vercel.app/).
+This Node.js project calculates the distance between two cities based on their latitude and longitude coordinates. It utilizes the Haversine formula to compute the distance. The project consists of server-side code written in JavaScript and an HTML interface for user input, and the service is hosted through Vercel.
+
+The website is located at:
+[https://distance-between-cities-service.vercel.app/](https://distance-between-cities-service.vercel.app/)
 
 ## Dependencies
 
