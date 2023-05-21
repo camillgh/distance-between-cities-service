@@ -32,6 +32,11 @@ app.listen(3000, () => {
   console.log("Server is running on http://localhost:3000");
 });
 
+/**
+ * Fetches latitude and longitude coordinates for a given city using an external API.
+ * @param {string} cityName - The name of the city to fetch data for.
+ * @returns {Promise} - A promise that resolves to the city data.
+ */
 async function fetchCityData(cityName) {
   const apiKey = process.env.CITY_API_KEY;
   const apiUrl = `https://api.api-ninjas.com/v1/city?name=${cityName}`;
