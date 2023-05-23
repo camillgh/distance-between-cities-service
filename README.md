@@ -28,9 +28,7 @@ Before running the project, you need to set up an environment variable. Create a
 
 ## Usage
 
-1. Start the server: `npm start`
-2. Open a web browser and navigate to `http://localhost:3000`
-3. Enter the names of two cities in the input fields.
-4. Click the "Search" button to calculate the distance between the cities.
-5. The result will be displayed below the input fields.
-6. Upon invalid inputs (non-exisiting cities) in either input field, an error message will be displayed on the site.
+Enter the names of two cities in the input fields.
+Click the "Search" button to calculate the distance between the cities.
+The result will be displayed below the input fields.
+Upon invalid inputs (non-exisiting cities) in either input field, an error message will be displayed on the site.
